@@ -87,6 +87,10 @@
           "named": true
         },
         {
+          "type": "important",
+          "named": true
+        },
+        {
           "type": "integer_value",
           "named": true
         },
@@ -557,6 +561,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "apply_statement",
+          "named": true
+        },
         {
           "type": "at_root_statement",
           "named": true
@@ -2408,6 +2416,7 @@
   {
     "type": "stylesheet",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -2993,7 +3002,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "feature_name",
@@ -3077,7 +3087,8 @@
   },
   {
     "type": "single_line_comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "string_value",

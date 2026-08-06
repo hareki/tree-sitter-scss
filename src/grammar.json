@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "scss",
   "rules": {
     "stylesheet": {
@@ -462,6 +463,18 @@
             "type": "SYMBOL",
             "name": "_value"
           }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "important"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "STRING",
@@ -1204,6 +1217,10 @@
         {
           "type": "SYMBOL",
           "name": "supports_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "apply_statement"
         },
         {
           "type": "SYMBOL",
@@ -2608,6 +2625,6 @@
     "_top_level_item",
     "_block_item"
   ],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }
-

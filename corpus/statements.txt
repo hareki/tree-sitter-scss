@@ -265,6 +265,31 @@ Apply statements
 (stylesheet
   (apply_statement (plain_value) (plain_value) (plain_value)))
 
+==============================
+Apply statements in a block
+==============================
+
+.a {
+  @apply fill-red-50 border-black col-span-1;
+
+  &:hover {
+    @apply underline !important;
+  }
+}
+
+---
+
+(stylesheet
+  (rule_set
+    (selectors (class_selector (class_name)))
+    (block
+      (apply_statement (plain_value) (plain_value) (plain_value))
+      (rule_set
+        (selectors
+          (pseudo_class_selector (nesting_selector) (class_name)))
+        (block
+          (apply_statement (plain_value) (important)))))))
+
 =================================
 Operators
 =================================

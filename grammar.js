@@ -77,7 +77,8 @@ module.exports = grammar({
 
     forward_statement: ($) => seq("@forward", $._value, ";"),
 
-    apply_statement: ($) => seq("@apply", repeat($._value), ";"),
+    apply_statement: ($) =>
+      seq("@apply", repeat($._value), optional($.important), ";"),
 
     parameters: ($) => seq("(", sep1(",", $.parameter), ")"),
 
@@ -178,6 +179,7 @@ module.exports = grammar({
         $.namespace_statement,
         $.keyframes_statement,
         $.supports_statement,
+        $.apply_statement,
         $.mixin_statement,
         $.include_statement,
         $.extend_statement,
