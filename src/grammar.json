@@ -1876,8 +1876,20 @@
       }
     },
     "important": {
-      "type": "STRING",
-      "value": "!important"
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "!important"
+          },
+          {
+            "type": "PATTERN",
+            "value": "#\\{\\s*!important\\s*\\}"
+          }
+        ]
+      }
     },
     "_query": {
       "type": "CHOICE",

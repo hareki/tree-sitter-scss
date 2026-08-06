@@ -279,7 +279,12 @@ module.exports = grammar({
         )
       ),
 
-    important: ($) => "!important",
+    // `#{!important}` is the standard Sass escape hatch for emitting
+    // `!important` from a directive that would otherwise reject it, and is
+    // ubiquitous in Tailwind's `@apply`. Matched as one token because this
+    // grammar has no interpolation rule: `#{...}` is normally absorbed into
+    // `plain_value`, whose character class excludes `!`, `{` and `}`.
+    important: ($) => token(choice("!important", /#\{\s*!important\s*\}/)),
 
     // Media queries
 

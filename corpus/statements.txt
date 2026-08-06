@@ -290,6 +290,24 @@ Apply statements in a block
         (block
           (apply_statement (plain_value) (important)))))))
 
+==============================
+Apply statements with interpolated important
+==============================
+
+.a {
+  @apply bg-brand-10 text-brand-60 #{!important};
+  color: red #{!important};
+}
+
+---
+
+(stylesheet
+  (rule_set
+    (selectors (class_selector (class_name)))
+    (block
+      (apply_statement (plain_value) (plain_value) (important))
+      (declaration (property_name) (plain_value) (important)))))
+
 =================================
 Operators
 =================================
